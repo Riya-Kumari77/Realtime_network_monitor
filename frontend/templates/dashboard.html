@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real-Time Network & System Monitoring Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div>
+            <h1>Real-Time Network & System Monitoring Dashboard</h1>
+            <p>
+                Flask + ESP32-C6 + WiFi Network Analysis
+            </p>
+        </div>
+
+        <div id="clock">
+            Live Monitoring
+        </div>
+
+    </header>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>CPU Usage</h3>
+            <p id="cpu">0%</p>
+        </div>
+
+        <div class="card">
+            <h3>RAM Usage</h3>
+            <p id="ram">0%</p>
+        </div>
+
+        <div class="card">
+            <h3>RAM Details</h3>
+            <p id="ram-details">0 GB</p>
+        </div>
+
+        <div class="card">
+            <h3>IP Address</h3>
+            <p id="ip-address">Loading...</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>Bytes Sent</h3>
+            <p id="bytes-sent">0 MB</p>
+        </div>
+
+        <div class="card">
+            <h3>Bytes Received</h3>
+            <p id="bytes-received">0 MB</p>
+        </div>
+
+        <div class="card">
+            <h3>ESP32 Device</h3>
+            <p id="esp-device">-</p>
+        </div>
+
+        <div class="card">
+            <h3>ESP32 RSSI</h3>
+            <p id="esp-rssi">-</p>
+        </div>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>ESP32-C6 Status</h2>
+
+        <div class="esp-grid">
+
+            <div>
+                <strong>Device:</strong>
+                <span id="esp-device-status">-</span>
+            </div>
+
+            <div>
+                <strong>IP:</strong>
+                <span id="esp-ip">-</span>
+            </div>
+
+            <div>
+                <strong>SSID:</strong>
+                <span id="esp-ssid">-</span>
+            </div>
+
+            <div>
+                <strong>Channel:</strong>
+                <span id="esp-channel">-</span>
+            </div>
+
+            <div>
+                <strong>Uptime:</strong>
+                <span id="esp-uptime">-</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>CPU Usage Graph</h2>
+
+        <canvas id="cpuChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>RAM Usage Graph</h2>
+
+        <canvas id="ramChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>Nearby WiFi Networks</h2>
+
+        <table id="wifiTable">
+
+            <thead>
+                <tr>
+                    <th>SSID</th>
+                    <th>RSSI</th>
+                    <th>Channel</th>
+                    <th>Signal Quality</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>Top Processes By RAM Usage</h2>
+
+        <table id="processTable">
+
+            <thead>
+
+                <tr>
+                    <th>Process</th>
+                    <th>PID</th>
+                    <th>CPU %</th>
+                    <th>RAM MB</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        setInterval(() => {
+
+            document.getElementById("clock").innerText =
+                new Date().toLocaleString();
+
+        }, 1000);
+
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

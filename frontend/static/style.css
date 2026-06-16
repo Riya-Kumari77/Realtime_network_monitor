@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111827;
+    color: #f9fafb;
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 20px;
+}
+
+.header {
+    background: #1f2937;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #9ca3af;
+}
+
+#clock {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dashboard-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.card {
+
+    background: #1f2937;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-4px);
+}
+
+.card h3 {
+
+    color: #9ca3af;
+
+    margin-bottom: 10px;
+
+    font-size: 15px;
+}
+
+.card p {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #60a5fa;
+}
+
+.chart-card {
+
+    background: #1f2937;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.chart-card h2 {
+
+    margin-bottom: 15px;
+
+    color: #f9fafb;
+}
+
+canvas {
+
+    max-height: 350px;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+}
+
+th {
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 12px;
+
+    text-align: left;
+}
+
+td {
+
+    padding: 12px;
+
+    border-bottom:
+        1px solid #374151;
+}
+
+tr:hover {
+
+    background: #2d3748;
+}
+
+.esp-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+}
+
+.esp-grid div {
+
+    background: #111827;
+
+    padding: 12px;
+
+    border-radius: 10px;
+}
+
+.esp-grid strong {
+
+    display: block;
+
+    color: #9ca3af;
+
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+    .header h1 {
+
+        font-size: 22px;
+    }
+
+    .card p {
+
+        font-size: 20px;
+    }
+}
